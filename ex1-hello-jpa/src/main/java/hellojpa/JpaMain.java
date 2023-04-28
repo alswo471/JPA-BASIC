@@ -20,12 +20,14 @@ public class JpaMain {
 
             Member member = new Member();
             member.setId(1L);
-            member.setName("HelloA");
+            member.setUsername("HelloA");
+            member.setRoleType(RoleType.GUEST);
             em.persist(member);
 
             Member findMember = em.find(Member.class, 1L);
             System.out.println("Id : " + findMember.getId());
-            System.out.println("Name : " + findMember.getName());
+            System.out.println("Name : " + findMember.getUsername());
+            System.out.println("Name : " + findMember.getRoleType());
 
 
             tx.commit();
