@@ -1,11 +1,9 @@
-package hellojpa;
+package japbook.jpashop;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import java.util.List;
-
 
 public class JpaMain {
 
@@ -18,24 +16,6 @@ public class JpaMain {
         tx.begin();
 
         try {
-            Team team = new Team();
-            team.setName("토트넘");
-            em.persist(team);
-
-            Member member = new Member();
-            member.setUsername("member1");
-            member.changeTeam(team);
-            em.persist(member);
-
-            em.flush();
-            em.clear();
-
-            Team findTeam = em.find(Team.class, team.getId());
-            List<Member> members = findTeam.getMembers();
-
-            for(Member member1 : members){
-                System.out.println("m = " + member.getUsername());
-            }
 
             tx.commit();
         } catch (Exception e) {
